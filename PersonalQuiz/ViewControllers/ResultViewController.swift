@@ -28,7 +28,6 @@ class ResultViewController: UIViewController {
     
     private func identificationOfCommonAnimals(for answers: [Answer]) {
         let animals = answers.map { $0.animal }
-    
         let animalCount = NSCountedSet(array: animals)
         let yourAnimal = animalCount.max {
             animalCount.count(for: $0) < animalCount.count(for: $1)
@@ -37,6 +36,5 @@ class ResultViewController: UIViewController {
         guard let yourAnimal = yourAnimal as? Animal else { return }
         resultImageLabel.text = "Вы - \(String(yourAnimal.rawValue))"
         resultDescriptionLabel.text = yourAnimal.definition
-       
     }
 }
